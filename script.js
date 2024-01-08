@@ -1,6 +1,6 @@
 // Save this code in a separate JavaScript file, e.g., script.js
 
-const socket = new WebSocket('ws://your_esp8266_ip:81');
+const socket = new WebSocket('ws://172.20.10.5:81');
 
 socket.onopen = function (event) {
   console.log('WebSocket connection opened:', event);
