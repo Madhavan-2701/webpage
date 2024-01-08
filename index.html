@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Sender</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Example</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Data Sender</h1>
-        <form id="dataForm">
-            <label for="dataInput">Enter Data:</label>
-            <input type="text" id="dataInput" name="dataInput" required>
-            <button type="button" onclick="sendData()">Send Data</button>
-        </form>
-        <div id="result"></div>
-    </div>
-    <script src="script.js"></script>
+  <h1>WebSocket Example</h1>
+  <input type="text" id="messageInput" placeholder="Enter message">
+  <button onclick="sendMessage()">Send Message</button>
+
+  <script>
+    const socket = new WebSocket('ws://your_esp8266_ip:81');
+
+    socket.onopen = function (event) {
+      console.log('WebSocket connection opened:', event);
+    };
+
+    socket.onmessage = function (event) {
+      console.log('WebSocket message received:', event.data);
+    };
+
+    socket.onclose = function (event) {
+      console.log('WebSocket connection closed:', event);
+    };
+
+    function sendMessage() {
+      const messageInput = document.getElementById('messageInput');
+      const message = messageInput.value;
+      socket.send(message);
+      messageInput.value = '';
+    }
+  </script>
 </body>
 </html>
