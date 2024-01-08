@@ -1,10 +1,23 @@
-function sendData() {
-    const dataInput = document.getElementById('dataInput').value;
-    const resultDiv = document.getElementById('result');
+// Save this code in a separate JavaScript file, e.g., script.js
 
-    // Perform any client-side validation if needed
+const socket = new WebSocket('ws://your_esp8266_ip:81');
 
-    // Simulate sending data to the server (replace this with an actual API call)
-    // For simplicity, we'll just display the data on the page
-    resultDiv.innerHTML = `<p>Sent Data: ${dataInput}</p>`;
+socket.onopen = function (event) {
+  console.log('WebSocket connection opened:', event);
+};
+
+socket.onmessage = function (event) {
+  console.log('WebSocket message received:', event.data);
+  // Handle the received message as needed
+};
+
+socket.onclose = function (event) {
+  console.log('WebSocket connection closed:', event);
+};
+
+function sendMessage() {
+  const messageInput = document.getElementById('messageInput');
+  const message = messageInput.value;
+  socket.send(message);
+  messageInput.value = '';
 }

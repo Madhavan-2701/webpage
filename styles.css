@@ -1,32 +1,35 @@
+/* Save this code in a separate CSS file, e.g., style.css */
+
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f4f4f4;
-}
-
-.container {
+  }
+  
+  h1 {
     text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    margin-right: 10px;
-}
-
-input {
-    padding: 5px;
-    margin-right: 10px;
-}
-
-button {
+    color: #333;
+  }
+  
+  input[type="text"] {
     padding: 8px;
+    margin-right: 8px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
     cursor: pointer;
-}
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
